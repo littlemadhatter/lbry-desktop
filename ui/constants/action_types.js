@@ -195,6 +195,10 @@ export const CLEAR_PUBLISH_ERROR = 'CLEAR_PUBLISH_ERROR';
 export const REMOVE_PENDING_PUBLISH = 'REMOVE_PENDING_PUBLISH';
 export const DO_PREPARE_EDIT = 'DO_PREPARE_EDIT';
 
-// media
+// Media
 export const MEDIA_PLAY = 'MEDIA_PLAY';
 export const MEDIA_PAUSE = 'MEDIA_PAUSE';
+
+// Socket
+export const WS_CONNECT = 'WS_CONNECT';
+export const WS_DISCONNECT = 'WS_DISCONNECT';

@@ -48,6 +48,7 @@ import { doAuthenticate, doGetSync, doClaimRewardType, rewards as REWARDS } from
 import { lbrySettings as config, version as appVersion } from 'package.json';
 import analytics, { SHARE_INTERNAL } from 'analytics';
 import { doSignOutCleanup, deleteSavedPassword, getSavedPassword } from 'util/saved-passwords';
+import { doSocketConnect } from 'redux/actions/socket';
 
 // @if TARGET='app'
 const { autoUpdater } = remote.require('electron-updater');
@@ -502,6 +503,8 @@ export function doAnaltyicsPurchaseEvent(fileInfo) {
 
 export function doSignIn() {
   return (dispatch, getState) => {
+    dispatch(doSocketConnect());
+
     // @if TARGET='web'
     dispatch(doBalanceSubscribe());
     dispatch(doFetchChannelListMine());

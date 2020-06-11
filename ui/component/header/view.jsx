@@ -66,6 +66,7 @@ const Header = (props: Props) => {
     clearEmailEntry,
     clearPasswordEntry,
     emailToVerify,
+    hasNotifications = true,
   } = props;
 
   // on the verify page don't let anyone escape other than by closing the tab to keep session data consistent
@@ -190,6 +191,32 @@ const Header = (props: Props) => {
                     // @endif
                   >
                     <Icon size={18} icon={ICONS.PUBLISH} aria-hidden />
+                  </MenuButton>
+                  <MenuList className="menu__list--header">
+                    <MenuItem className="menu__link" onSelect={() => history.push(`/$/${PAGES.PUBLISH}`)}>
+                      <Icon aria-hidden icon={ICONS.PUBLISH} />
+                      {__('Publish')}
+                    </MenuItem>
+                    <MenuItem className="menu__link" onSelect={openChannelCreate}>
+                      <Icon aria-hidden icon={ICONS.CHANNEL} />
+                      {__('New Channel')}
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
+
+                <Menu>
+                  <MenuButton
+                    aria-label={__('Your notifications')}
+                    title={__('Your notifications')}
+                    className="header__navigation-item menu__title header__navigation-item--icon"
+                    // @if TARGET='app'
+                    onDoubleClick={e => {
+                      e.stopPropagation();
+                    }}
+                    // @endif
+                  >
+                    <Icon size={18} icon={ICONS.NOTIFICATION} aria-hidden />
+                    <span className="notification__bubble">3</span>
                   </MenuButton>
                   <MenuList className="menu__list--header">
                     <MenuItem className="menu__link" onSelect={() => history.push(`/$/${PAGES.PUBLISH}`)}>
