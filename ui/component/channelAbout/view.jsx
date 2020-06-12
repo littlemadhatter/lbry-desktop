@@ -89,6 +89,7 @@ function ChannelAbout(props: Props) {
             )
           </div>
           
+          {channelIsMine && (
           <label>Delete Channel</label>
           <div class="media__info-text">
             <button title="Abandon Claim" aria-label="Abandon Claim" class="button button--secondary" type="button">
@@ -101,6 +102,7 @@ function ChannelAbout(props: Props) {
               </span>
             </button>
           </div>
+        )}
           
         </Fragment>
       </section>
